@@ -226,7 +226,7 @@ hack:
 
 # 定时任务配置（仅在startup_mode为scheduled时生效）
 schedule:
-  enabled: true
+  enabled: false
   # Cron表达式，支持简化格式
   # 示例：
   #   "0 */2 * * *"     - 每2小时执行一次
