@@ -131,7 +131,7 @@ class SmartRandomConfig:
 @dataclass
 class ScheduleConfig:
     """定时任务配置"""
-    enabled: bool = False
+    enabled: bool = True
     cron_expression: str = "0 9,15,20 * * *" - 每天9:00、15:00、20:00执行
     timezone: str = "Asia/Shanghai"
 
