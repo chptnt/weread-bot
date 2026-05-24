@@ -56,16 +56,12 @@ reading:
   # 书籍配置列表
   # 章节索引优先级：配置的索引值 > CURL提取的值 > 自动计算的索引
   books:
-    - name: "明朝那些事"                    # 书籍名称
-      book_id: "a57325c05c8ed3a57224187"  # 书籍ID
-      chapters:                          # 章节配置，支持新旧两种格式
+    - name: "历史转折中的人和事"                    # 书籍名称
+      book_id: "5d232ad0717e72975d2e455"  # 书籍ID，json_data中的'b'
+      chapters:                           # 章节配置，支持新旧两种格式
         # 包含章节ID和可选的章节索引（推荐）
-        - chapter_id: "a87322c014a87ff679a21ea"
-          chapter_index: 4              # 可选：微信读书官方章节索引ID
-        - id: "e4d32d5015e4da3b7fbb1fa"
-          index: 5              # 可选：微信读书官方章节索引ID
-        # 只有章节ID
-        - "16732dc0161679091c5aeb1"      # 兼容旧格式，章节索引将自动计算或从CURL提取
+        - chapter_id: "e3632bd0222e369853df322"  # 章节ID，json_data中的'c'
+          chapter_index: 34                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
   
   # 智能随机模式配置
   smart_random:
