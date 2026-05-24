@@ -96,32 +96,40 @@ jobs:
           name: "WeReadBot-GitHub-Action"
           startup_mode: "immediate"
           startup_delay: "1-2"
-
         reading:
           mode: "${{ github.event.inputs.reading_mode || 'smart_random' }}"
-          # 目标阅读时长（分钟），支持区间随机，格式如："1" 或 "1-2"
           target_duration: "${TARGET_DURATION}"
           reading_interval: "30-48"
-          use_curl_data_first: true
+          use_curl_data_first: false
           fallback_to_config: true
+          
+          books:
+            - name: "历史转折中的人和事"
+              book_id: "5d232ad0717e72975d2e455"
+              chapters:
+                - chapter_id: "a87322c014a87ff679a21ea"
+                  chapter_index: 4
+                - chapter_id: "70e32fb021170efdf2eca12"
+                  chapter_index: 17
+                - chapter_id: "1c3321802231c383cd30bb3"
+                  chapter_index: 35
+          
           smart_random:
-            book_continuity: 0.8
-            chapter_continuity: 0.7
+            book_continuity: 0.9
+            chapter_continuity: 0.8
             book_switch_cooldown: 3600
-
+            
         human_simulation:
           enabled: false
           reading_speed_variation: true
           break_probability: 0.15
           break_duration: "10-20"
           rotate_user_agent: false
-
         network:
           timeout: 30
           retry_times: 3
           retry_delay: "5-15"
           rate_limit: 10
-
         notification:
           enabled: ${{ github.event.inputs.notify_enabled != 'false' }}
           include_statistics: true
@@ -132,7 +140,6 @@ jobs:
             session_failure: true
             runtime_error: true
             general: true
-
         logging:
           level: "INFO"
           format: "detailed"
@@ -140,7 +147,6 @@ jobs:
           max_size: "10MB"
           backup_count: 5
           console: true
-
         history:
           enabled: ${{ github.event.inputs.history_enabled != 'false' }}
           file: "logs/run-history.json"
