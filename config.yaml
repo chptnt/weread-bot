@@ -60,8 +60,8 @@ reading:
       book_id: "5d232ad0717e72975d2e455"  # 书籍ID，json_data中的'b'
       chapters:                           # 章节配置，支持新旧两种格式
         # 包含章节ID和可选的章节索引（推荐）
-        - chapter_id: "e3632bd0222e369853df322"  # 章节ID，json_data中的'c'
-          chapter_index: 34                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
+        - chapter_id: "1c3321802231c383cd30bb3"  # 章节ID，json_data中的'c'
+          chapter_index: 35                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
   
   # 智能随机模式配置
   smart_random:
