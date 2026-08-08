@@ -27,16 +27,16 @@ reading:
   # 书籍配置列表
   # 章节索引优先级：配置的索引值 > CURL提取的值 > 自动计算的索引
   books:
-    - name: "历史转折中的人和事"                    # 书籍名称
-      book_id: "5d232ad0717e72975d2e455"  # 书籍ID，json_data中的'b'
+    - name: "资本论（套装共3册）"                    # 书籍名称
+      book_id: "wb115321887466h1479609920"  # 书籍ID，json_data中的'b'
       chapters:                           # 章节配置，支持新旧两种格式
         # 包含章节ID和可选的章节索引（推荐）
-        - chapter_id: "a87322c014a87ff679a21ea"  # 章节ID，json_data中的'c'
-          chapter_index: 4                       # 可选：微信读书官方章节索引ID，json_data中的'ci'
-        - chapter_id: "70e32fb021170efdf2eca12"  # 章节ID，json_data中的'c'
-          chapter_index: 17                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
-        - chapter_id: "1c3321802231c383cd30bb3"  # 章节ID，json_data中的'c'
-          chapter_index: 35                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
+        - chapter_id: "aab325601eaab3238922e53"  # 章节ID，json_data中的'c'
+          chapter_index: 14                       # 可选：微信读书官方章节索引ID，json_data中的'ci'
+        - chapter_id: "d1f32d7024fd1fe173d0651"  # 章节ID，json_data中的'c'
+          chapter_index: 79                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
+        - chapter_id: "98f3284021498f137082c2e"  # 章节ID，json_data中的'c'
+          chapter_index: 20                      # 可选：微信读书官方章节索引ID，json_data中的'ci'
   
   # 智能随机模式配置
   smart_random:
