@@ -104,15 +104,15 @@ jobs:
           fallback_to_config: true
           
           books:
-            - name: "历史转折中的人和事"
-              book_id: "5d232ad0717e72975d2e455"
+            - name: "资本论（套装共3册）"
+              book_id: "c5632620813ab6e36g01537f"
               chapters:
-                - chapter_id: "a87322c014a87ff679a21ea"
-                  chapter_index: 4
-                - chapter_id: "70e32fb021170efdf2eca12"
-                  chapter_index: 17
-                - chapter_id: "1c3321802231c383cd30bb3"
-                  chapter_index: 35
+                - chapter_id: "17e328b022b17e62166fad4"
+                  chapter_index: 43
+                - chapter_id: "09332a2023b093f65e0888c"
+                  chapter_index: 59
+                - chapter_id: "7f33291023d7f39f8317e0b"
+                  chapter_index: 61
           
           smart_random:
             book_continuity: 0.9
