@@ -3665,22 +3665,40 @@ class WeReadSessionManager:
             curl_data.get('ci'),
         )
 
+   
     def _extract_wr_skey_from_response(
         self, response: httpx.Response
     ) -> Optional[str]:
-        """从刷新响应中提取 wr_skey，集中处理兼容分支"""
-        new_skey = response.cookies.get("wr_skey")
-        if new_skey:
-            return new_skey
+        """从刷新响应中提取 wr_skey，兼容多条 Set-Cookie 响应头。"""
 
-        set_cookie = response.headers.get("set-cookie", "")
-        for cookie in set_cookie.split(','):
-            if "wr_skey" not in cookie:
-                continue
-            parts = cookie.split(';')[0]
-            if '=' in parts:
-                return parts.split('=', 1)[1].strip()
+        # 方式一：优先从 httpx 的 Cookie 容器中提取
+        try:
+            new_skey = response.cookies.get("wr_skey")
+            if new_skey:
+                return new_skey
+        except (KeyError, TypeError):
+            pass
+
+        # 方式二：逐条检查 Set-Cookie 响应头
+        # 不使用逗号分割，避免破坏 Expires 属性中的日期
+        try:
+            set_cookie_headers = response.headers.get_list("set-cookie")
+        except (AttributeError, TypeError):
+            set_cookie_headers = []
+
+        for cookie_header in set_cookie_headers:
+            cookie_pair = cookie_header.split(";", 1)[0].strip()
+            name, separator, value = cookie_pair.partition("=")
+
+            if (
+                separator
+                and name.strip() == "wr_skey"
+                and value.strip()
+            ):
+                return value.strip()
+
         return None
+
 
     async def _handle_protocol_response(
         self, response_data: Dict[str, Any], response_time: float
